@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data value type in Js</title>
+</head>
+<body>
+    <script>
+        //Data value type in Js
+        //1. Primitive data type
+        // String / Number/Boolean/undefined/null/symbol
+        let myName="Abhay";
+        console.log(myName);
+        console.log(typeof (myName));
+        let age=23;
+        console.log(age);
+        console.log(typeof (age));
+        let isMarried=false;
+        console.log(isMarried);
+        console.log(typeof (isMarried));
+        let address=null;
+        console.log(address);
+        console.log(typeof (address));
+        //bright side of null is that it is an object and it can be used to store multiple values in the form of key value pair
+        let salary=BigInt(7688489389988);
+        console.log(salary);
+        //symbol is a unique and immutable data type that can be used as an identifier for object properties
+        let name1=Symbol("vikas");
+        let name2=Symbol("vikas");
+        console.log(name1==name2);
+        //2. Non-primitive/reference/object-mutable value
+        //Array/Object/Function
+        //object is a collection of key value pair.
+        let student={
+            name:"Abhay",
+            age:23,
+            isMarried:true,
+            address:{
+                city:"Agra",
+                state:"UP",
+            },
+            course:"Btech",
+            branch:"CSE",
+            year:2025,
+            getINFO:function(){
+                return "My Eduction is " +student.course + " " +student.branch + " and year is" + student.year;
+            }
+        };
+        console.log(student);
+        //accessing object properties
+        // using dot notation  
+        console.log(student.name + " " + student.age+ " " + student.address.city);
+        console.log(student.getINFO());
+        //find object properties in object
+        console.log("age" in student);
+        //delete object properties
+        console.log(delete student.name);
+        console.log(student);
+        console.log("name" in student);
+        //accessing object properties using bracket notation
+        console.log(student["isMarried"]);       
+        </script>
+    
+</body>
+</html>
