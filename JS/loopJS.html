@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops in JS</title>
+</head>
+<body>
+    <script>
+        //loops are used to execute a block of code repeatedly until a specified condition is met.
+        //1. for loop is used when the number of iterations is known beforehand.
+        let students=["Abhay","Vikas","Rohit","Satyam"];
+        for(let i=0; i<students.length; i++){
+            console.log(students[i]);
+        }
+        2. //while loop is used when the number of iterations is not known beforehand.
+        let x=0;
+        while(x<students.length){
+            console.log(students[x]);
+            x++;
+        }
+        // for ..of loop is used to iterate over the elements of an array or a string.
+       for(let y of students){
+        console.log(y);
+       }
+       let niharika=["niharika","cse ds 2","not married","abes engineering college","bulandshahr"];
+         for(let i=0; i<niharika.length; i++){
+            console.log(niharika[i]);
+        }
+    </script>
+</body>
+</html>

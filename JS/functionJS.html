@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+<body>
+    <script>
+        //function:javascript function is a reusable block of code that performs a specific task.
+        //normal function without parameter
+        function demo1(){
+            console.log("hello world");
+        }
+        demo1();
+        //normal function with parameter
+        function demo(text){
+            console.log("hello" + text);
+        }
+        demo("JS");
+        //function with default parameter.
+        function add(a,b=10){
+            console.log("addition of two number is" + " " + (a+b));
+        }
+        add(3);
+        //An anonymous function is a function without a name, mainly used for specific or short-term tasks, and is often assigned to variables or passed as arguments where reuse is not required.
+        let cal=function(){
+            var num1=9;
+            var num2=10;
+            var res=num1*num2;
+            console.log("multiply of num1 and num2" + " "+ res);
+
+        }
+        cal();
+        //arrow function: An arrow function is a concise way to write functions in JavaScript, using the "=>" syntax, and it does not have its own "this" context, making it useful for certain situations like callbacks and functional programming.
+        let div=(x,y)=>{
+            var num1=x;
+            var num2=y;
+            var res=x/y;
+            console.log("division is " + " " + res);
+        }
+        div(12,3);
+        //arrow function with single line statement
+        let msg=()=>console.log("hello ABES")
+        msg();
+        //callback function: A callback function is a function that is passed as an argument to another function and is executed after a certain event or condition is met, allowing for asynchronous programming and event handling in JavaScript.
+       //function sub(callback){
+           // var num1=10;
+           // var num2=5;
+           // var res=num1-num2;
+            ///callback(res);
+
+        //}
+        //function displayRes(res){
+            //console.log("result of subtraction is" + " " + res);
+       // }
+        //sub(displayRes);
+        //IIFE: Immediately Invoked Function Expression()()
+        (function(a,b){
+            console.log(`First parameter ${a} and second parameter ${b}`);
+            var res=a+b;
+            console.log(`result is ${res}`);
+        })(5, 10);
+        //short code using arrow function
+        (msg=>console.log("hello ABES"))();
+        //promises: A promise is an object in JavaScript that represents the eventual completion (or failure) of an asynchronous operation .
+        ///It has three stages: pending, fulfilled, and rejected, allowing developers to handle asynchronous tasks more effectively and avoid callback hell.
+        let promise=new Promise(function(resolve,reject){
+            let age=25;
+            if(age>=18){
+                resolve("vaild age");
+            }
+           else{
+              reject("wait for next year");  
+           } 
+        });
+        console.log(promise);
+        promise.then(msg=>console.log(msg)).catch(console.error>=console.log());
+        //async functions always return a Promise. If you return a non-promise value, JavaScript automatically wraps it in a resolved Promise. await pauses execution inside an async function until the Promise settles, then resumes with the resolved value or throws an error if rejected.
+        async function userData(){
+            let response=await fetch(`https://api.github.com/users/niharikash9410/CSE-DS-2`);
+
+            let responseData=await response.json();
+            console.log(responseData);
+    
+        }
+        userData();
+    //local Storage 
+    //Local storage in JavaScript allows you to store key-value pairs in a web browser with no expiration date. This means the data persists even after the browser is closed and reopened, making it useful for storing user preferences, session data, or any other information that needs to be retained across sessions.
+    let myinfo={
+        name:"Niharika",
+        age:19,
+        course:"CSE-DS-2",
+        mobile:1234567890
+    }
+    //converting object to JSON string using stringify
+    let myInfoString=JSON.stringify(myinfo);
+    //set item in local storage
+    localStorage.setItem(`prefrence`,myInfoString);
+    //Retrieve and passing the object back
+    let getMyINFOData=localStorage.getItem(`prefrence`);
+    //parse the object
+    const finalData=JSON.parse(getMyINFOData);
+    console.log(finalData.name);
+    //Array.prototype.forEach() method executes a provided function once for each array element.
+    let arr=[1,2,3,4,5];
+    //find the sqaure of each element 
+    let result=arr.map(n=>n*n);
+    console.log(`square of each element is: ${result}`);
+    //find the number greater than 3 
+    let res=arr.filter(n=>n>3);
+    console.log(`Numbers greater than 3: ${res}`);
+    </script>
+    </body>
+    </html>
